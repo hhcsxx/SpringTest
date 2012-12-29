@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Sat Dec 29 11:48:59 CST 2012:
- 正在使用类加载器 sun.misc.Launcher$AppClassLoader@5e176f 引导数据库
-目录 C:\Users\hhcsxx1\MyDB  中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258) 实例 a816c00e-013b-e4c6-e76b-0000007d5e28
+Sat Dec 29 14:11:35 CST 2012:
+ 正在使用类加载器 sun.misc.Launcher$AppClassLoader@11e1e67 引导数据库
+目录 C:\Users\hhcsxx1\MyDB  中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258) 实例 a816c00e-013b-e549-771a-0000008f36c0
 
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_05-b06

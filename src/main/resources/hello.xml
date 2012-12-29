@@ -42,51 +42,51 @@
 			<ref bean="dataSource"/>
 		</property>
 	</bean>
-	
-	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-		<property name="transactionManager">
-			<ref bean="transactionManager"/>
-		</property>
-	</bean>
-	
-	<bean id="com" class="net.chuangdie.lhb.bean.ComImpl">
-		<property name="transactionTemplate">
-			<ref bean="transactionTemplate"/>
-		</property>
-	</bean>
-	
-<!-- 	<bean id="userDaoTarget" class="net.chuangdie.lhb.bean.ComImpl"> -->
-<!-- 	</bean> -->
-	
-<!-- 	<bean id="userDao" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"> -->
-<!-- 		<property name="proxyInterfaces"> -->
-<!-- 			<list> -->
-<!-- 				<value> -->
-<!-- 					net.chuangdie.lhb.bean.Com -->
-<!-- 				</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
-		
-<!-- 		<property name="target"> -->
-<!-- 			<ref bean="userDaoTarget"/> -->
-<!-- 		</property> -->
-		
+<!-- 	基础Spring事务的编写代码 -->
+<!-- 	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"> -->
 <!-- 		<property name="transactionManager"> -->
 <!-- 			<ref bean="transactionManager"/> -->
 <!-- 		</property> -->
-		
-<!-- 		<property name="transactionAttributeSource"> -->
-<!-- 			<ref bean="attrbuteSource"/> -->
-<!-- 		</property> -->
 <!-- 	</bean> -->
 	
-<!-- 	<bean id="attrbuteSource" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource"> -->
-<!-- 		<property name="properties"> -->
-<!-- 			<props> -->
-<!-- 				<prop key="*"> -->
-<!-- 					PROPAGATION_REQUIRED, -Exception -->
-<!-- 				</prop> -->
-<!-- 			</props> -->
+<!-- 	<bean id="com" class="net.chuangdie.lhb.bean.ComImpl"> -->
+<!-- 		<property name="transactionTemplate"> -->
+<!-- 			<ref bean="transactionTemplate"/> -->
 <!-- 		</property> -->
 <!-- 	</bean> -->
+<!-- 	进阶Spring事务代码(在网上有另外四种的编写方式，不过大致上和这样的是一样的。还有两种只是单纯的拦截器模式。) -->
+	<bean id="com" class="net.chuangdie.lhb.bean.ComImpl">
+	</bean>
+	
+	<bean id="comService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<list>
+				<value>
+					net.chuangdie.lhb.bean.Com
+				</value>
+			</list>
+		</property>
+		
+		<property name="target">
+			<ref bean="com"/>
+		</property>
+		
+		<property name="transactionManager">
+			<ref bean="transactionManager"/>
+		</property>
+		
+		<property name="transactionAttributeSource">
+			<ref bean="attrbuteSource"/>
+		</property>
+	</bean>
+	
+	<bean id="attrbuteSource" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<props>
+				<prop key="*">
+					PROPAGATION_REQUIRED, +Exception
+				</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

@@ -2,7 +2,7 @@ package net.chuangdie.lhb.bean;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class Shopping implements Com
+public class Shopping
 {
 	private Integer id;
 	private Double price;

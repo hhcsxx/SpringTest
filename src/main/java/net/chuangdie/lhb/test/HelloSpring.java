@@ -2,7 +2,7 @@ package net.chuangdie.lhb.test;
 
 import javax.sql.DataSource;
 
-import net.chuangdie.lhb.bean.ComImpl;
+import net.chuangdie.lhb.bean.Com;
 import net.chuangdie.lhb.bean.Shopping;
 import net.chuangdie.lhb.bean.Transaction;
 
@@ -40,7 +40,7 @@ public class HelloSpring implements GreetingService
 
 		Shopping shopping = (Shopping) factory.getBean("shopping");
 		// shopping.createTable();
-		shopping.setName("wqwqwa");
+		shopping.setName("wqwqwawa");
 		shopping.setPrice(2.21);
 		// shopping.insert(shopping);
 		Transaction transaction = (Transaction) factory.getBean("transaction");
@@ -50,8 +50,9 @@ public class HelloSpring implements GreetingService
 		transaction.setCreate_date(1356589216);
 		// transaction.insert(transaction);
 
-		ComImpl comImpl = (ComImpl) factory.getBean("com");
-		comImpl.enrollStudentInCourse(shopping, transaction);
+		Com comImpl = (Com) factory.getBean("comService");
+		comImpl.insertAll(shopping, transaction);
+		// comImpl.enrollStudentInCourse(shopping, transaction);
 		// Connection conn = null;
 		// PreparedStatement stmt = null;
 		// ResultSet rs = null;

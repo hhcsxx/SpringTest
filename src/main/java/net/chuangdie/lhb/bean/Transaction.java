@@ -2,7 +2,7 @@ package net.chuangdie.lhb.bean;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class Transaction implements Com
+public class Transaction
 {
 	private Integer id;
 	private Double in_cash;
