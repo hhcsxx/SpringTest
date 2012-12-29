@@ -40,7 +40,7 @@ public class HelloSpring implements GreetingService
 
 		Shopping shopping = (Shopping) factory.getBean("shopping");
 		// shopping.createTable();
-		shopping.setName("wqwq");
+		shopping.setName("wqwqwa");
 		shopping.setPrice(2.21);
 		// shopping.insert(shopping);
 		Transaction transaction = (Transaction) factory.getBean("transaction");
@@ -50,8 +50,8 @@ public class HelloSpring implements GreetingService
 		transaction.setCreate_date(1356589216);
 		// transaction.insert(transaction);
 
-		ComImpl comImpl = (ComImpl) factory.getBean("userDaoTarget");
-		comImpl.insertAll(shopping, transaction);
+		ComImpl comImpl = (ComImpl) factory.getBean("com");
+		comImpl.enrollStudentInCourse(shopping, transaction);
 		// Connection conn = null;
 		// PreparedStatement stmt = null;
 		// ResultSet rs = null;
